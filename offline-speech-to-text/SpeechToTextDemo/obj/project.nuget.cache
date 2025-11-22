@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "9803P5eC55k=",
+  "success": true,
+  "projectFilePath": "/home/gladys/Projects/AI-Project/offline-speech-to-text/SpeechToTextDemo/SpeechToTextDemo.csproj",
+  "expectedPackageFiles": [
+    "/home/gladys/.nuget/packages/vosk/0.3.38/vosk.0.3.38.nupkg.sha512"
+  ],
+  "logs": []
+}
