@@ -1,0 +1,237 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "org.k2fsa.portaudio.runtime.linux-x64/1.0.4": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libportaudio.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          }
+        }
+      },
+      "org.k2fsa.portaudio.runtime.osx-arm64/1.0.4": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/osx-arm64/native/libportaudio.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          }
+        }
+      },
+      "org.k2fsa.portaudio.runtime.osx-x64/1.0.4": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/osx-x64/native/libportaudio.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          }
+        }
+      },
+      "org.k2fsa.portaudio.runtime.win-x64/1.0.4": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/win-x64/native/portaudio.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          }
+        }
+      },
+      "PortAudioSharp2/1.0.4": {
+        "type": "package",
+        "dependencies": {
+          "org.k2fsa.portaudio.runtime.linux-x64": "1.0.4",
+          "org.k2fsa.portaudio.runtime.osx-arm64": "1.0.4",
+          "org.k2fsa.portaudio.runtime.osx-x64": "1.0.4",
+          "org.k2fsa.portaudio.runtime.win-x64": "1.0.4"
+        },
+        "compile": {
+          "lib/net7.0/PortAudioSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/PortAudioSharp.dll": {}
+        }
+      },
+      "Vosk/0.3.38": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Vosk.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Vosk.dll": {}
+        },
+        "build": {
+          "build/Vosk.targets": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "org.k2fsa.portaudio.runtime.linux-x64/1.0.4": {
+      "sha512": "rWllJZ9uw/cuJRlkl1TxLWc8GxGivbz8R41SZ5Go7e5mo8CtJTgZliSdaJTNyiDT+NqgyNGJPbq9V0RHZIQpzg==",
+      "type": "package",
+      "path": "org.k2fsa.portaudio.runtime.linux-x64/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "org.k2fsa.portaudio.runtime.linux-x64.1.0.4.nupkg.sha512",
+        "org.k2fsa.portaudio.runtime.linux-x64.nuspec",
+        "runtimes/linux-x64/native/libportaudio.so"
+      ]
+    },
+    "org.k2fsa.portaudio.runtime.osx-arm64/1.0.4": {
+      "sha512": "qDCr0FL4iFK5rT2pjxX/N+rrQPciAOk5d+gK4BOOWG8sI1sBqWXSJlcd065QTJ9GumIPqizvBomLAWuAksgZmQ==",
+      "type": "package",
+      "path": "org.k2fsa.portaudio.runtime.osx-arm64/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "org.k2fsa.portaudio.runtime.osx-arm64.1.0.4.nupkg.sha512",
+        "org.k2fsa.portaudio.runtime.osx-arm64.nuspec",
+        "runtimes/osx-arm64/native/libportaudio.dylib"
+      ]
+    },
+    "org.k2fsa.portaudio.runtime.osx-x64/1.0.4": {
+      "sha512": "p3Qxe7Jh6f/Mdz6YtTS23JOsTcG/ro//19FNkkhlXxnqdHpPBnEIM6Mz02H35rK5d0MxH6YRCu4gRlXCGlyMvg==",
+      "type": "package",
+      "path": "org.k2fsa.portaudio.runtime.osx-x64/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "org.k2fsa.portaudio.runtime.osx-x64.1.0.4.nupkg.sha512",
+        "org.k2fsa.portaudio.runtime.osx-x64.nuspec",
+        "runtimes/osx-x64/native/libportaudio.dylib"
+      ]
+    },
+    "org.k2fsa.portaudio.runtime.win-x64/1.0.4": {
+      "sha512": "XH2GVsJIc2mJ32xkUniR/5RM/CfWRWx5frDCuoOGTc1p/nZL7YirrVZ6dxO6ug0Ch3whZRZHg90Iqs447EC7JQ==",
+      "type": "package",
+      "path": "org.k2fsa.portaudio.runtime.win-x64/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "org.k2fsa.portaudio.runtime.win-x64.1.0.4.nupkg.sha512",
+        "org.k2fsa.portaudio.runtime.win-x64.nuspec",
+        "runtimes/win-x64/native/portaudio.dll"
+      ]
+    },
+    "PortAudioSharp2/1.0.4": {
+      "sha512": "0l1zX9eEfnacZXyia55MyuFf4NrKWY5zVZYW0CKCqQBClI8KXpbqJHf/tK+r5iKSvRSrrwqBijFePvCRddQ8nQ==",
+      "type": "package",
+      "path": "portaudiosharp2/1.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/PortAudioSharp.dll",
+        "lib/net7.0-ios14.5/PortAudioSharp.dll",
+        "lib/net7.0/PortAudioSharp.dll",
+        "lib/netcoreapp3.1/PortAudioSharp.dll",
+        "lib/netstandard2.0/PortAudioSharp.dll",
+        "portaudiosharp2.1.0.4.nupkg.sha512",
+        "portaudiosharp2.nuspec"
+      ]
+    },
+    "Vosk/0.3.38": {
+      "sha512": "W/me6nwF7fq9uWVmqbmWvPx3DjhMSzb9D85IZa0FUg2PIxcWjfG55vYHBc+9xCuNL/zohIBRYTKiP4itnMU3ww==",
+      "type": "package",
+      "path": "vosk/0.3.38",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/Vosk.targets",
+        "build/lib/linux-x64/libvosk.so",
+        "build/lib/osx-universal/libvosk.dylib",
+        "build/lib/win-x64/libgcc_s_seh-1.dll",
+        "build/lib/win-x64/libstdc++-6.dll",
+        "build/lib/win-x64/libvosk.dll",
+        "build/lib/win-x64/libwinpthread-1.dll",
+        "lib/netstandard2.0/Vosk.dll",
+        "vosk.0.3.38.nupkg.sha512",
+        "vosk.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "PortAudioSharp2 >= 1.0.4",
+      "Vosk >= 0.3.38"
+    ]
+  },
+  "packageFolders": {
+    "/home/gladys/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/gladys/Projects/AI-Project/AI-Project.csproj",
+      "projectName": "AI-Project",
+      "projectPath": "/home/gladys/Projects/AI-Project/AI-Project.csproj",
+      "packagesPath": "/home/gladys/.nuget/packages/",
+      "outputPath": "/home/gladys/Projects/AI-Project/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/gladys/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "PortAudioSharp2": {
+            "target": "Package",
+            "version": "[1.0.4, )"
+          },
+          "Vosk": {
+            "target": "Package",
+            "version": "[0.3.38, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/256/sdk/8.0.407/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
