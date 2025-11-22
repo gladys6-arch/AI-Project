@@ -6,8 +6,21 @@ class.Program
 {
   static void Main(string[] args)
   {
-    // paths
+    // path for Vosk Model
     string modelPath = "models/vosk-model-small-en-us-0.15";
-    string audioFolder = "audio";
+    //pat for wav file
+    string WAVPath = "audio/test.wav";
+
+    // intialize Vosk model
+
+        Vosk.Vosk.SetLogLevel(0); 
+        Model model = new Model(modelPath);
+        VoskRecognizer recognizer = new VoskRecognizer(model, 16000.0f);
+
+
+
+        
+
+
   }
 }
