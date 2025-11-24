@@ -6,6 +6,7 @@
     <RootNamespace>offline_speech_to_text</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <EnableTopLevelStatements>false</EnableTopLevelStatements>
   </PropertyGroup>
 
   <ItemGroup>
