@@ -1,74 +1,104 @@
 using System;
+using System.Diagnostics;
 using System.IO;
+using System.Text.Json;
+using System.Threading;
 using Vosk;
-using NAudio.Wave;
 
-namespace SpeechToTextDemo
+class Program
 {
-    internal class Program
+    static void Main()
     {
-        static void Main(string[] args)
+        Console.WriteLine("Press ENTER to start recording...");
+        Console.ReadLine();
+
+        // Load the Vosk model
+        var model = new Model("model");
+        var recognizer = new VoskRecognizer(model, 16000); // 16kHz mono
+
+        Console.WriteLine("Recording... Press ENTER again to stop.");
+
+        // Start recording from default ALSA device
+        var record = new Process
         {
-            Console.WriteLine("Starting LIVE Microphone Speech-to-Text (Vosk + NAudio)");
-
-            // Automatically detect the model folder
-            string projectRoot = AppContext.BaseDirectory;
-
-            // Small model folder (make sure you renamed it to 'model')
-            string modelPath = Path.Combine(projectRoot, "..", "..", "..", "model");
-
-            modelPath = Path.GetFullPath(modelPath); // absolute path
-
-            Console.WriteLine($"Looking for model folder at: {modelPath}");
-
-            if (!Directory.Exists(modelPath))
+            StartInfo = new ProcessStartInfo
             {
-                Console.WriteLine($"Model folder not found at '{modelPath}'. Please extract vosk-model-small-en-us-0.15 into this location and rename it 'model'.");
-                return;
+                FileName = "arecord",
+                Arguments = "-f S16_LE -r 16000 -c 1 -D default",
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+                RedirectStandardError = false
             }
+        };
 
-            const int sampleRate = 16000; // recommended for most Vosk English models
+        try
+        {
+            record.Start();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Error starting recording: " + e.Message);
+            return;
+        }
 
-            try
+        var stream = record.StandardOutput.BaseStream;
+
+        // Thread to stop recording on ENTER
+        bool stop = false;
+        new Thread(() =>
+        {
+            Console.ReadLine();
+            stop = true;
+        }).Start();
+
+        byte[] buffer = new byte[4096];
+
+        while (!stop)
+        {
+            int bytesRead = stream.Read(buffer, 0, buffer.Length);
+            if (bytesRead > 0)
             {
-                using var model = new Model(modelPath);
-                using var recognizer = new VoskRecognizer(model, sampleRate);
-                using var waveIn = new WaveInEvent();
-
-                waveIn.WaveFormat = new WaveFormat(sampleRate, 16, 1); // 16-bit mono
-
-                waveIn.DataAvailable += (sender, e) =>
+                // AcceptWaveform returns true only for finalized segments
+                if (recognizer.AcceptWaveform(buffer, bytesRead))
                 {
-                    if (e.BytesRecorded == 0) return;
-
-                    if (recognizer.AcceptWaveform(e.Buffer, e.BytesRecorded))
-                        Console.WriteLine(recognizer.Result());
-                    else
-                        Console.WriteLine(recognizer.PartialResult());
-                };
-
-                waveIn.RecordingStopped += (s, e) =>
+                    string finalText = ExtractText(recognizer.Result());
+                    if (!string.IsNullOrWhiteSpace(finalText))
+                    {
+                        Console.Write(finalText + " "); // append live to current line
+                    }
+                }
+                else
                 {
-                    if (e.Exception != null)
-                        Console.WriteLine($"Recording stopped due to an error: {e.Exception.Message}");
-                    else
-                        Console.WriteLine("Recording stopped.");
-                };
-
-                waveIn.StartRecording();
-                Console.WriteLine("Recording... speak into the microphone.");
-                Console.WriteLine("Press ENTER to stop.");
-                Console.ReadLine();
-
-                waveIn.StopRecording();
-                Console.WriteLine("Final result:");
-                Console.WriteLine(recognizer.FinalResult());
-                Console.WriteLine("Done.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
+                    // Skip partial results — no overwriting
+                    continue;
+                }
             }
         }
+
+        // Stop recording
+        try
+        {
+            record.Kill();
+            record.WaitForExit();
+        }
+        catch { }
+
+        Console.WriteLine("\nRecording stopped. Press ENTER to exit.");
+        Console.ReadLine();
+    }
+
+    static string ExtractText(string json)
+    {
+        try
+        {
+            using var doc = JsonDocument.Parse(json);
+            if (doc.RootElement.TryGetProperty("text", out var textElement))
+            {
+                return textElement.GetString() ?? "";
+            }
+        }
+        catch { }
+        return "";
     }
 }
+

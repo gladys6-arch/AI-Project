@@ -1,3 +1,4 @@
+
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
@@ -10,8 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="PortAudioSharp" Version="0.3.0" />
     <PackageReference Include="Vosk" Version="0.3.38" />
-    <PackageReference Include="NAudio" Version="2.1.0" />
   </ItemGroup>
 
 </Project>

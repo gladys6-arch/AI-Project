@@ -43,9 +43,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "NAudio": {
+            "PortAudioSharp": {
               "target": "Package",
-              "version": "[2.1.0, )"
+              "version": "[0.3.0, )"
             },
             "Vosk": {
               "target": "Package",
