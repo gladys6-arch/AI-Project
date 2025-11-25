@@ -64,8 +64,10 @@ class Program
                     string finalText = ExtractText(recognizer.Result());
                     if (!string.IsNullOrWhiteSpace(finalText))
                     {
+                        Console.ForegroundColor = ConsoleColor.Cyan; // light blue
                         Console.Write(finalText + " "); // append live to current line
-                    }
+                        Console.ResetColor();
+                    }    
                 }
                 else
                 {
@@ -74,6 +76,7 @@ class Program
                 }
             }
         }
+
 
         // Stop recording
         try

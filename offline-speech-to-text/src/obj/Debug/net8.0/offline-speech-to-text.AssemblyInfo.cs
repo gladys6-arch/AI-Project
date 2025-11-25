@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("offline-speech-to-text")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f9ad32689a1a8233c3998bd2029d96cacf9cea66")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+abf21a37470285b178d43628f6f72ffc33c6abe0")]
 [assembly: System.Reflection.AssemblyProductAttribute("offline-speech-to-text")]
 [assembly: System.Reflection.AssemblyTitleAttribute("offline-speech-to-text")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
