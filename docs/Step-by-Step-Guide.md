@@ -128,7 +128,15 @@ After pressing ENTER to start, speak into the microphone. The console displays t
 
 ## AI Prompt Journal
 
-No specific AI prompts were used in creating this guide, as it was adapted from existing documentation and code.
+what is C# as a language?
+What do i need to install in my system?
+What packages do i need to install in my project folder?
+Apart from NAudio and PortAudio which other packages can be used on ubuntu?
+Why am i not able to record using my mic?
+Instructions to run the app?
+How can i deploy this Project?
+
+
 
 ## Common Issues & Fixes
 
