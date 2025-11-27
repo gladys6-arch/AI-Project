@@ -1,4 +1,4 @@
-Offline Speech-to-Text (C# + Vosk + ALSA)
+# Offline Speech-to-Text (C# + Vosk + ALSA)
 
 A fully offline, real-time speech-to-text application built using .NET, Vosk, and ALSA arecord on Linux.
 The app captures live microphone audio and streams it to Vosk, outputting text continuously in a Google Docs–style paragraph, with optional colored transcription text.
