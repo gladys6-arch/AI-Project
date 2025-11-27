@@ -92,15 +92,15 @@ Console.ForegroundColor = ConsoleColor.Green;
 
 ### How It Works
 
-App loads the offline Vosk model
+- App loads the offline Vosk model
 
-Uses arecord to stream 16kHz mono audio
+- Uses arecord to stream 16kHz mono audio
 
-Sends raw PCM bytes to VoskRecognizer
+- Sends raw PCM bytes to VoskRecognizer
 
-When Vosk finalizes a phrase, it prints the text in a continuous flow
+- When Vosk finalizes a phrase, it prints the text in a continuous flow
 
-No partial updates — only clean, stable transcription
+- No partial updates — only clean, stable transcription
 
 ### Troubleshooting
 Device or resource busy
@@ -128,33 +128,33 @@ arecord -D plughw:0,0 ...
 
 My project is a desktop/server-side C# console application that:
 
-accesses the microphone hardware
+- accesses the microphone hardware
 
-runs real-time audio capture (arecord)
+- runs real-time audio capture (arecord)
 
-loads a local Vosk model (hundreds of MBs)
+- loads a local Vosk model (hundreds of MBs)
 
-does offline speech recognition with access to /dev/snd/*
+- does offline speech recognition with access to /dev/snd/*
 
 Vercel or Render cannot:
 
-access microphone hardware
+- access microphone hardware
 
-run background audio services
+- run background audio services
 
-run non-web console apps
+- run non-web console apps
 
-open /dev/snd audio devices
+- open /dev/snd audio devices
 
-handle long-running processes
+- handle long-running processes
 
-ship huge model files
+- ship huge model files
 
 
 
 ## License
 
-opyright (c) <2025> <copyright Gladys Achando>
+copyright (c) <2025> <copyright Gladys Achando>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
