@@ -2,7 +2,7 @@
 
 ## Title & Objective
 
-**What technology did you choose?**  
+** Technology Used?**  
 Offline Speech-to-Text using the Vosk library in C#.
 
 **Why did you choose it?**  
